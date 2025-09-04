@@ -107,26 +107,17 @@ This is Simpson's Paradox in action. The species variable is a **confounding var
 
 ### C. Side-by-Side Comparison
 
-Let's create a compelling side-by-side comparison to really drive home the paradox:
+**🎯 Your Task:** Use Cursor's AI assistant to create a compelling side-by-side comparison plot!
 
-```{r}
-#| message: false
-#| warning: false
-#| fig-cap: "Side-by-side comparison showing Simpson's Paradox"
+**Instructions:**
+1. Ask Cursor: *"Create a side-by-side comparison plot using patchwork that combines plot1 and plot2 with a title, subtitle, and caption explaining Simpson's Paradox"*
+2. The plot should clearly show the contrast between the overall relationship and the species-specific relationships
+3. Use `theme_minimal(16)` for consistency
+4. **Replace these instructions with the actual plot code that Cursor generates**
+5. **Render the README.md file** using `quarto render README.qmd`
+6. Make sure to sync your changes to your GitHub folder for grading!
 
-# Create the comparison plot
-comparison_plot <- plot1 + plot2 + 
-  plot_annotation(
-    title = "Simpson's Paradox: The Danger of Aggregated Data",
-    subtitle = "Left: Overall relationship (misleading) | Right: Species-specific relationships (truth)",
-    caption = "Always stratify your analysis by relevant grouping variables!",
-    theme = theme_minimal(16)
-  )
-
-comparison_plot
-```
-
-This side-by-side comparison makes the paradox crystal clear. The same data tells two completely different stories depending on whether we consider the species grouping variable.
+**What you should see:** A powerful visualization that makes Simpson's Paradox crystal clear - the same data telling two completely different stories depending on whether we consider the species grouping variable.
 
 ## Key Takeaways: Lessons from Simpson's Paradox
 
