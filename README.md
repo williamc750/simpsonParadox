@@ -57,7 +57,8 @@ plot1 <- ggplot(data = penguins,
        y = "Bill depth (mm)") +
   theme(plot.title.position = "plot",
         plot.caption = element_text(hjust = 0, face= "italic"),
-        plot.caption.position = "plot") +
+        plot.caption.position = "plot",
+        aspect.ratio = 1) +
   geom_smooth(method = "lm", se = FALSE, color = "red", linewidth = 1.5)
 
 plot1
@@ -91,7 +92,8 @@ plot2 <- ggplot(data = penguins,
   theme(plot.title.position = "plot",
         plot.caption = element_text(hjust = 0, face = "italic"),
         plot.caption.position = "plot",
-        legend.position = "bottom") +
+        legend.position = "bottom",
+        aspect.ratio = 1) +
   # Overall trend (ignoring species)
   geom_smooth(method = "lm", se = FALSE, color = "red", 
               linewidth = 1.5, alpha = 0.8) +
@@ -119,6 +121,7 @@ relationship when we aggregate the data.
 ``` r
 # Create the side-by-side comparison using patchwork
 comparison_plot <- plot1 + plot2 +
+  plot_layout(ncol = 2, widths = c(1, 1)) +
   plot_annotation(
     title = "Simpson's Paradox: When Aggregation Lies",
     subtitle = "The same penguin data tells two completely different stories depending on whether we consider species grouping",
