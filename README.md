@@ -49,8 +49,8 @@ step.
 plot1 <- ggplot(data = penguins,
         aes(x = bill_length_mm,
         y = bill_depth_mm)) +
-  theme_minimal(16) +
-  geom_point(alpha = 0.6, color = "steelblue") +
+  theme_minimal(18) +
+  geom_point(alpha = 0.7, color = "steelblue", size = 2.5) +
   labs(title = "Overall Relationship: Bill Length vs. Bill Depth",
        subtitle = "Ignoring species differences",
        x = "Bill length (mm)",
@@ -59,7 +59,7 @@ plot1 <- ggplot(data = penguins,
         plot.caption = element_text(hjust = 0, face= "italic"),
         plot.caption.position = "plot",
         aspect.ratio = 1) +
-  geom_smooth(method = "lm", se = FALSE, color = "red", linewidth = 1.5)
+  geom_smooth(method = "lm", se = FALSE, color = "red", linewidth = 2)
 
 plot1
 ```
@@ -80,8 +80,8 @@ plot2 <- ggplot(data = penguins,
        aes(x = bill_length_mm,
            y = bill_depth_mm,
            color = species)) +
-  theme_minimal(16) +
-  geom_point(alpha = 0.7) +
+  theme_minimal(18) +
+  geom_point(alpha = 0.8, size = 2.5) +
   scale_color_manual(values = c("darkorange","purple","cyan4"),
                      name = "Species") +
   labs(title = "Simpson's Paradox Revealed!",
@@ -93,12 +93,14 @@ plot2 <- ggplot(data = penguins,
         plot.caption = element_text(hjust = 0, face = "italic"),
         plot.caption.position = "plot",
         legend.position = "bottom",
-        aspect.ratio = 1) +
+        aspect.ratio = 1,
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16)) +
   # Overall trend (ignoring species)
   geom_smooth(method = "lm", se = FALSE, color = "red", 
-              linewidth = 1.5, alpha = 0.8) +
+              linewidth = 2, alpha = 0.8) +
   # Species-specific trends
-  geom_smooth(method = "lm", se = FALSE, linewidth = 1)
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1.5)
 
 plot2
 ```
@@ -126,12 +128,12 @@ comparison_plot <- plot1 + plot2 +
     title = "Simpson's Paradox: When Aggregation Lies",
     subtitle = "The same penguin data tells two completely different stories depending on whether we consider species grouping",
     caption = "Left: Overall relationship shows positive correlation | Right: Species-specific relationships show negative correlation\nThis reversal of trends when data is grouped is the essence of Simpson's Paradox",
-    theme = theme_minimal(16) +
+    theme = theme_minimal(18) +
       theme(
-        plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
-        plot.subtitle = element_text(size = 14, hjust = 0.5, margin = margin(b = 20)),
-        plot.caption = element_text(size = 12, hjust = 0, face = "italic", 
-                                   margin = margin(t = 20), lineheight = 1.3)
+        plot.title = element_text(size = 24, face = "bold", hjust = 0.5, margin = margin(b = 10)),
+        plot.subtitle = element_text(size = 16, hjust = 0.5, margin = margin(b = 25), lineheight = 1.2),
+        plot.caption = element_text(size = 14, hjust = 0, face = "italic", 
+                                   margin = margin(t = 25), lineheight = 1.4)
       )
   )
 
