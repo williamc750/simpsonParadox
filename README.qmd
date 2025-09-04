@@ -19,9 +19,17 @@ In this tutorial, we'll explore Simpson's Paradox using the beloved Palmer Stati
 ```{r setup}
 #| message: false
 #| warning: false
+# Set CRAN mirror for package installation
+options(repos = c(CRAN = "https://cran.rstudio.com/"))
+
+# Install required packages if not already installed
+if (!require(patchwork, quietly = TRUE)) {
+  install.packages("patchwork")
+  library(patchwork)
+}
+
 library(ggplot2)
 library(palmerpenguins)
-library(patchwork)
 data(penguins)
 ```
 
